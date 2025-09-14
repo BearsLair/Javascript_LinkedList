@@ -1,6 +1,25 @@
+class Node {
+  constructor(value = null, nextNode = null) {
+    this.value = value;
+    this.nextNode = nextNode;
+  }
+}
+
 class LinkedList {
+  constructor() {
+    this.head = null;
+    this.size = 0;
+  }
+
   // append(value) - adds new node to end of list
-  append(value) {}
+  append(value) {
+    if (LinkedList.size == 0) {
+      LinkedList.head = new Node(value, null);
+      LinkedList.size++;
+    } else {
+    }
+  }
+
   // prepend(value) - adds new node to start of list
   // size - returns total number of nodes
   // head - returns first node
@@ -15,13 +34,6 @@ class LinkedList {
   // removeAt(index) - removes node at index
 }
 
-class Node {
-  constructor(value = null, nextNode = null) {
-    this.value = value;
-    this.nextNode = nextNode;
-  }
-}
-
-const newNode = new Node("dog", "cat");
+const newNode = new Node("dog");
 
 console.log(newNode);
