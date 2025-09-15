@@ -41,7 +41,19 @@ class LinkedList {
   // constains(value) - returns true if value is in list, false otherwise
   // find(value) - returns index of node containing value
   // toString - display list objects as strings
+  toString() {
+    let current = this.head;
+    let string = "";
 
+    while (current.nextNode != null) {
+      string += `( ${current.value} ) -> `;
+      current = current.nextNode;
+    }
+
+    string += "null";
+
+    return string;
+  }
   // with format: ( value ) -> ( value ) -> ( value ) -> null
   // insertAt(value, index) - inserts new node at given index
   // removeAt(index) - removes node at index
@@ -52,6 +64,7 @@ const newList = new LinkedList();
 newList.append("dog");
 newList.append("cat");
 newList.append("bird");
+newList.append("fish");
+newList.append("mouse");
 
-console.log(newList);
-console.log(newList.head.nextNode.nextNode);
+console.log(newList.toString());
