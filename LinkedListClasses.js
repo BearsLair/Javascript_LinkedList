@@ -34,6 +34,9 @@ class LinkedList {
 
   // prepend(value) - adds new node to start of list
   // size - returns total number of nodes
+  size() {
+    return this.size;
+  }
   // head - returns first node
   // tail - returns last node in list
   // at(index) - returns node at given index
@@ -41,11 +44,12 @@ class LinkedList {
   // constains(value) - returns true if value is in list, false otherwise
   // find(value) - returns index of node containing value
   // toString - display list objects as strings
+  // with format: ( value ) -> ( value ) -> ( value ) -> null
   toString() {
     let current = this.head;
     let string = "";
 
-    while (current.nextNode != null) {
+    while (current != null) {
       string += `( ${current.value} ) -> `;
       current = current.nextNode;
     }
@@ -54,7 +58,7 @@ class LinkedList {
 
     return string;
   }
-  // with format: ( value ) -> ( value ) -> ( value ) -> null
+
   // insertAt(value, index) - inserts new node at given index
   // removeAt(index) - removes node at index
 }
