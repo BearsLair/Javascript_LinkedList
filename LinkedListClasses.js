@@ -1,3 +1,5 @@
+// The nodes are NESTED Node objects, joined together via nextNode property.
+
 class Node {
   constructor(value = null, nextNode = null) {
     this.value = value;
@@ -7,16 +9,26 @@ class Node {
 
 class LinkedList {
   constructor() {
-    this.head = null;
     this.size = 0;
+    this.head = null;
   }
 
   // append(value) - adds new node to end of list
   append(value) {
-    if (LinkedList.size == 0) {
-      LinkedList.head = new Node(value, null);
-      LinkedList.size++;
+    let node = new Node(value, null);
+
+    if (this.head === null) {
+      this.head = node;
+      this.size++;
     } else {
+      let current = this.head;
+
+      while (current.nextNode != null) {
+        current = current.nextNode;
+      }
+      current.nextNode = node;
+
+      this.size++;
     }
   }
 
@@ -29,11 +41,17 @@ class LinkedList {
   // constains(value) - returns true if value is in list, false otherwise
   // find(value) - returns index of node containing value
   // toString - display list objects as strings
+
   // with format: ( value ) -> ( value ) -> ( value ) -> null
   // insertAt(value, index) - inserts new node at given index
   // removeAt(index) - removes node at index
 }
 
-const newNode = new Node("dog");
+const newList = new LinkedList();
 
-console.log(newNode);
+newList.append("dog");
+newList.append("cat");
+newList.append("bird");
+
+console.log(newList);
+console.log(newList.head.nextNode.nextNode);
