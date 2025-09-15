@@ -9,35 +9,37 @@ class Node {
 
 class LinkedList {
   constructor() {
-    this.size = 0;
-    this.head = null;
+    this.length = 0;
+    this.headNode = null;
   }
 
   // append(value) - adds new node to end of list
   append(value) {
     let node = new Node(value, null);
 
-    if (this.head === null) {
-      this.head = node;
-      this.size++;
+    if (this.headNode === null) {
+      this.headNode = node;
+      this.length++;
     } else {
-      let current = this.head;
+      let current = this.headNode;
 
       while (current.nextNode != null) {
         current = current.nextNode;
       }
       current.nextNode = node;
-
-      this.size++;
+      this.length++;
     }
   }
 
   // prepend(value) - adds new node to start of list
   // size - returns total number of nodes
   size() {
-    return this.size;
+    return this.length;
   }
   // head - returns first node
+  head() {
+    return this.headNode.value;
+  }
   // tail - returns last node in list
   // at(index) - returns node at given index
   // pop - removes last element of list
@@ -46,7 +48,7 @@ class LinkedList {
   // toString - display list objects as strings
   // with format: ( value ) -> ( value ) -> ( value ) -> null
   toString() {
-    let current = this.head;
+    let current = this.headNode;
     let string = "";
 
     while (current != null) {
@@ -72,3 +74,5 @@ newList.append("fish");
 newList.append("mouse");
 
 console.log(newList.toString());
+console.log(newList.size());
+console.log(newList.head());
