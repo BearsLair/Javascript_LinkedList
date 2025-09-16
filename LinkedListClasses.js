@@ -53,6 +53,20 @@ class LinkedList {
     }
   }
   // at(index) - returns node at given index (0-based).
+  at(index) {
+    let current = this.headNode;
+    let i = -1;
+
+    while (i < this.length) {
+      i++;
+
+      if (i == index) {
+        return current.value;
+      }
+
+      current = current.nextNode;
+    }
+  }
   // pop - removes last element of list
   // constains(value) - returns true if value is in list, false otherwise
   // find(value) - returns index of node containing value
@@ -84,7 +98,12 @@ newList.append("bird");
 newList.append("fish");
 newList.append("mouse");
 
-console.log(newList.toString());
+console.log("Linked List: ", newList.toString());
 console.log("Number of nodes: ", newList.size());
 console.log("First node: ", newList.head());
 console.log("Last node: ", newList.tail());
+console.log("Node at index 2: ", newList.at(2));
+console.log("---------------------");
+
+newList.pop();
+console.log("Linked List with last element removed: ", newList.toString);
