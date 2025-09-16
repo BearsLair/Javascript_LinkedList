@@ -146,6 +146,39 @@ class LinkedList {
     }
   }
   // removeAt(index) - removes node at index
+  removeAt(index) {
+    let current = this.headNode;
+    let i = 0;
+    let nextNodeCopy = null;
+
+    while (i <= index) {
+      console.log("current i: ", i);
+      if (i == index) {
+        nextNodeCopy = current.nextNode;
+        console.log("copy created: ", nextNodeCopy);
+        break;
+      } else {
+        current = current.nextNode;
+        console.log("on to next node: ", current);
+        i++;
+      }
+    }
+
+    i = 0;
+    current = this.headNode;
+
+    while (i < index) {
+      if (i == index - 1) {
+        current.nextNode = nextNodeCopy;
+        break;
+      } else {
+        current = current.nextNode;
+        i++;
+      }
+    }
+
+    return nextNodeCopy;
+  }
 }
 
 const newList = new LinkedList();
@@ -182,3 +215,6 @@ newList.insertAt("parrot", 3);
 console.log("Parrot added at index 3: ", newList.toString());
 console.log("Number of nodes: ", newList.size());
 console.log("---------------------");
+newList.removeAt(2);
+console.log("removed value at index 2", newList.toString());
+console.log("Number of nodes: ", newList.size());
