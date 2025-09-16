@@ -136,6 +136,7 @@ class LinkedList {
       if (i == index - 1) {
         nextNodeCopy = current.nextNode;
         current.nextNode = new Node(value, nextNodeCopy);
+        this.length++;
         break;
       } else {
         current = current.nextNode;
