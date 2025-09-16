@@ -100,15 +100,15 @@ class LinkedList {
     let i = 0;
 
     while (i < this.length) {
-      if (current == null) {
-        return "node not found";
-      } else if (current.value == value) {
+      if (current.value == value) {
         return i;
       } else {
         current = current.nextNode;
         i++;
       }
     }
+
+    return "not found";
   }
   // toString - display list objects as strings
   // with format: ( value ) -> ( value ) -> ( value ) -> null
