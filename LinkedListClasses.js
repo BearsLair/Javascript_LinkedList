@@ -78,6 +78,7 @@ class LinkedList {
     }
 
     current.nextNode = null;
+    this.size--;
   }
   // constains(value) - returns true if value is in list, false otherwise
   contains(value) {
@@ -94,6 +95,21 @@ class LinkedList {
     return false;
   }
   // find(value) - returns index of node containing value
+  find(value) {
+    let current = this.headNode;
+    let i = 0;
+
+    while (i < this.length) {
+      if (current == null) {
+        return "node not found";
+      } else if (current.value == value) {
+        return i;
+      } else {
+        current = current.nextNode;
+        i++;
+      }
+    }
+  }
   // toString - display list objects as strings
   // with format: ( value ) -> ( value ) -> ( value ) -> null
   toString() {
@@ -111,6 +127,22 @@ class LinkedList {
   }
 
   // insertAt(value, index) - inserts new node at given index
+  insertAt(value, index) {
+    let current = this.headNode;
+    let i = 0;
+    let nextNodeCopy = null;
+
+    while (i < index) {
+      if (i == index - 1) {
+        nextNodeCopy = current.nextNode;
+        current.nextNode = new Node(value, nextNodeCopy);
+        break;
+      } else {
+        current = current.nextNode;
+        i++;
+      }
+    }
+  }
   // removeAt(index) - removes node at index
 }
 
@@ -135,4 +167,13 @@ console.log("---------------------");
 
 console.log("Linked List contains 'cat': ", newList.contains("cat"));
 console.log("Linked list contains 'poodle': ", newList.contains("poodle"));
+console.log("---------------------");
+
+console.log("find index of cat: ", newList.find("cat"));
+console.log("find index of bird: ", newList.find("bird"));
+console.log("find index of monkey: ", newList.find("monkey"));
+console.log("---------------------");
+
+newList.insertAt("lion", 1);
+console.log("Lion added at index 1: ", newList.toString());
 console.log("---------------------");
