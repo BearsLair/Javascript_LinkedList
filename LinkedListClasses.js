@@ -78,7 +78,7 @@ class LinkedList {
     }
 
     current.nextNode = null;
-    this.size--;
+    this.length--;
   }
   // constains(value) - returns true if value is in list, false otherwise
   contains(value) {
@@ -137,6 +137,7 @@ class LinkedList {
         nextNodeCopy = current.nextNode;
         current.nextNode = new Node(value, nextNodeCopy);
         this.length++;
+        console.log(this.length);
         break;
       } else {
         current = current.nextNode;
@@ -177,4 +178,7 @@ console.log("---------------------");
 
 newList.insertAt("lion", 1);
 console.log("Lion added at index 1: ", newList.toString());
+newList.insertAt("parrot", 3);
+console.log("Parrot added at index 3: ", newList.toString());
+console.log("Number of nodes: ", newList.size());
 console.log("---------------------");
