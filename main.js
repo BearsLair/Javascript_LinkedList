@@ -41,3 +41,7 @@ console.log("Number of nodes: ", newList.size());
 newList.removeAt(1);
 console.log("removed value at index 1", newList.toString());
 console.log("Number of nodes: ", newList.size());
+console.log("---------------------");
+
+newList.prepend("poodle");
+console.log("poodle prepended to the beginning: ", newList.toString());

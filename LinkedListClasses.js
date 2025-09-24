@@ -31,7 +31,18 @@ export class LinkedList {
     }
   }
 
-  // prepend(value) - adds new node to start of list
+  // adds new node to start of list
+  prepend(value) {
+    let node = new Node(value, null);
+
+    const previousList = this.headNode;
+
+    node.nextNode = previousList;
+
+    this.headNode = node;
+
+    this.length++;
+  }
   // size - returns total number of nodes
   size() {
     return this.length;
